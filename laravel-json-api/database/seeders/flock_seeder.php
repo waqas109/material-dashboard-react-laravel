@@ -24,7 +24,7 @@ class flock_seeder extends Seeder
             flock::create([
                 'name' => 'flock_' . $i, // Generate a name dynamically (optional)
                 'user_id' => 1, // Setting user_id as NULL (or you can modify based on your requirements)
-                'created_at' => Carbon::now(), // Current timestamp for created_at
+                'created_at' => Carbon::nowphp(), // Current timestamp for created_at
                 'updated_at' => Carbon::now(), // Current timestamp for updated_at
             ]);
         }

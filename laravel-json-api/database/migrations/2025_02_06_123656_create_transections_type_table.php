@@ -11,19 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accounts', function (Blueprint $table) {
+        Schema::create('transection_types', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('account_type_id');
             $table->string('name');
-            $table->string('whatsapp');
-            $table->string('phone');
-            $table->string(column: 'bank');
-            $table->string('bank1');
-            $table->string('cnic');
-            $table->smallInteger('cr');
-            $table->smallInteger('dr');
-            $table->string('shop_address');
-            $table->string('address');
             $table->smallInteger('user_id');
             $table->softDeletes();
             $table->timestamps();
@@ -35,7 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
-        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('transection_types');
     }
 };

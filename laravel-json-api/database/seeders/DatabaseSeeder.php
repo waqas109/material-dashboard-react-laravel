@@ -20,5 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(accountTypesSeeder::class);
         $this->call(accountSeeder::class);
         $this->call(currentflockSeeder::class);
+        $this->call(productTypeSeeder::class);
+        $this->call(productSeeder::class);
+        $this->call(transectionTypeSeeder::class);
     }
 }
