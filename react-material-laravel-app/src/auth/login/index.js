@@ -83,14 +83,26 @@ function Login() {
       },
     };
 
+    // try {
+    //   const response = await AuthService.login(myData);
+    //   authContext.login(response.access_token, response.refresh_token);
+    // } catch (res) {
+    //   if (res.hasOwnProperty("message")) {
+    //     setCredentialsError(res.message);
+    //   } else {
+    //     setCredentialsError(res.errors[0].detail);
+    //   }
+    // }
     try {
       const response = await AuthService.login(myData);
       authContext.login(response.access_token, response.refresh_token);
     } catch (res) {
       if (res.hasOwnProperty("message")) {
         setCredentialsError(res.message);
-      } else {
+      } else if (Array.isArray(res.errors) && res.errors.length > 0) {
         setCredentialsError(res.errors[0].detail);
+      } else {
+        setCredentialsError("An unexpected error occurred.");
       }
     }
 
